@@ -20,11 +20,11 @@ queues: Dict[str, List[Member]] = defaultdict(list)
 def get_all_topics(guild: Guild) -> List[str]:
     roles: List[Role] = guild.roles
     r: Role
-    return [r.name[6:] for r in roles if r.name.startswith('Class-')]
+    return [r.name[6:] for r in roles if r.name.startswith('Topic-')]
 
 
 async def showtopics(user: Member, channel: TextChannel) -> None:
-    out = user.mention + " List of classes:\n"
+    out = user.mention + " List of topics:\n"
     out += "\n".join(get_all_topics(channel.guild))
     await channel.send(out)
 
